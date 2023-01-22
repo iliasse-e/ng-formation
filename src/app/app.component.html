@@ -8,39 +8,10 @@
   <title>Document</title>
 </head>
 <body>
-  <!-- Text interpolation -->
-  <h1>{{title}}</h1>
-  <img src='{{ lienImage }}' >
-  <p>Multiplier 2 et 3 donne {{ 2 * 3 }}</p>
-  <p>Le calcul dans le composant retourne {{ calculer(2, 3) }}</p>
-
-  <!-- property binding -->
-  <div>
-    <img [src]='lienImage'>;
-    <input [type]="inputType">
-  </div>
-
-  <!-- class & style binding -->
-  <div class="square" [style.background-color]="color"></div>
-
-  <!-- event binding -->
-  <div>
-    <button (click)="changeColor('green', $event)">Changer couleur</button>
-  </div>
-
-  <!-- Attribute binding -->
-  <div>
-    <table>
-      <tr><td [attr.colspan]="1 + 1">One-Two</td></tr>
-    </table>
-  </div>
-  <!-- Two ways binding -->
-  <!-- Pour utiliser ngModel, il est necessaire d'importer le module FormsModule -->
-  <div>
-    <input type="text" [(ngModel)]="content">
-    <h2>{{content}}</h2>
-  </div>
-
-  <!--  -->
+  <!-- && -->
+  <h1>Observer</h1>
+  <section>
+    <p>{{content}}</p>
+  </section>
 </body>
 </html>

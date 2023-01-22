@@ -1,22 +1,28 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { Observable, Observer, Subscription } from "rxjs";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'title';
-  lienImage: any = "../assets/image.jpg";
-  inputType: any = "date";
-  color: any = "red";
-  content: string = "";
+export class AppComponent implements OnInit {
 
-  public calculer(a: number, b: number): number {
-    return a*b;
+  protected content: any;
+
+  ngOnInit(): void {
+
+    // Observable envoyant un flux de données
+    const observable = new Observable<string>((observer) => {
+      setInterval(() => observer.next(new Date().toString()), 1000);
+    });
+
+    // Observeur, qui souscrit au flux de données (et la traite)
+    const observer = {
+      next: (a: any) => {this.content = a}
+    };
+
+    observable.subscribe(observer)
   }
-  public changeColor(color: string, $event: Event): void {
-    this.color = color;
-    console.log("information sur l'event : " + $event);
-  }
+
 }
