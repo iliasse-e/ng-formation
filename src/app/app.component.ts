@@ -3,7 +3,13 @@ import { Observable, Observer, Subscription } from "rxjs";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `<body>
+  <!-- && -->
+  <h1>Observer</h1>
+  <section>
+    <p>{{content}}</p>
+  </section>
+  </body>`,
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
